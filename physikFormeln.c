@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <physikFormeln.h>
+#include "physikFormeln.h"
 
 //=========
 //TODO
@@ -7,9 +7,9 @@
 //ABFANGEN VON FALSCHEN WERTEN
 
 
-int berechneGeschwindigkeit(void) 
+double berechneGeschwindigkeit(void) 
 {
-	//Benutzereingabe für Weg s
+	//Benutzereingabe fuer Weg s
 	printf("Bitte geben Sie den Startpunkt in Metern an: ");
 	scanf("%i", &startWeg);
 	printf("Bitte geben Sie den Endpunkt in Metern an: ");
@@ -18,7 +18,7 @@ int berechneGeschwindigkeit(void)
 	//Berechnen von delta Weg s
 	Weg = endWeg - startWeg;
 	
-	//Benutzereingabe für Zeit t
+	//Benutzereingabe fuer Zeit t
 	printf("Bitte geben Sie den Startzeitpunkt in Sekunden an: ");
 	scanf("%i", &startZeit);
 	printf("Bitte geben Sie den Endzeitpunkt in Sekunden an: ");
@@ -31,22 +31,22 @@ int berechneGeschwindigkeit(void)
 	Geschwindigkeit = Weg / Zeit;
 	
 	//Ausgabe der Geschwindigkeit v
-	printf("Die Geschwindigkeit beträgt %i km/h"), &Geschwindigkeit;
+	printf("Die Geschwindigkeit betraegt %i km/h"), &Geschwindigkeit;
 	
 }
 
-int berechneBeschleunigung(void)
+double berechneBeschleunigung(void)
 {
-	//Benutzereingabe für Geschwindigkeit v
+	//Benutzereingabe fuer Geschwindigkeit v
 	printf("Bitte geben Sie die Startgeschwindigkeit in km/h an: ");
-	scanf("%i, &startGeschwindigkeit);
+	scanf("%i", &startGeschwindigkeit);
 	printf("Bitte geben Sie die Endgeschwindigkeit in km/h an: ");
-	scanf("%i, &endGeschwindigkeit);
+	scanf("%i", &endGeschwindigkeit);
 	
 	//Berechnen von delta Geschwindigkeit v
 	Geschwindigkeit = endGeschwindigkeit - startGeschwindigkeit;
 	
-	//Benutzereingabe für Zeit t
+	//Benutzereingabe fuer Zeit t
 	printf("Bitte geben Sie den Startzeitpunkt in Sekunden an: ");
 	scanf("%i", &startZeit);
 	printf("Bitte geben Sie den Endzeitpunkt in Sekunden an: ");
@@ -57,20 +57,98 @@ int berechneBeschleunigung(void)
 	
 	//Berechnung der Beschleunigung a
 	Beschleunigung = Geschwindigkeit / Zeit;
-	printf("Die Beschleunigung beträgt %i km/h"), &Beschleunigung;
+
+	//Ausgabe  der Beschleunigung a
+	printf("Die Beschleunigung betraegt %i km/h"), &Beschleunigung;
 }
 
-int berechneImpuls(void)
+double berechneImpuls(void)
 {
-	//Benutzereingabe für Masse und Geschwindigkeit
+	//Benutzereingabe fuer Masse und Geschwindigkeit
 	printf("Bitte geben Sie die Masse in kg an: ");
-	scanf("%i", &Masse,)
+	scanf("%i", &Masse);
 	printf("Bitte geben Sie die Geschwindigkeit in km/h an: ");
-	scanf("%i", &Masse,)
+	scanf("%i", &Masse);
 	
 	//Berechnung des Impulses
-	Impuls = Masse * Geschwindigkeit
+	Impuls = Masse * Geschwindigkeit;
 	
 	//Ausgabe des Impulses
-	printf("Der Impuls beträgt %i"), &Impuls; //WAS IST EIN IMPULS LOL
+	printf("Der Impuls betraegt %i"), &Impuls;
+}
+double berechneggB(void)
+{
+	//Benutzereingabe fuer Weg s
+	printf("Bitte geben Sie den Startpunkt in Metern an: ");
+	scanf("%i", &startWeg);
+	printf("Bitte geben Sie den Endpunkt in Metern an: ");
+	scanf("%i", &endWeg);
+	
+	//Benutzereingabe fuer Zeit t
+	printf("Bitte geben Sie den Startzeitpunkt in Sekunden an: ");
+	scanf("%i", &startZeit);
+	printf("Bitte geben Sie den Endzeitpunkt in Sekunden an: ");
+	scanf("%i", &endZeit);
+
+	//Berechnen von delta Weg s
+	Weg = endWeg - startWeg;
+	
+	//Berechnung der gleichfoermigen geradlinigen Bewegung
+	gleichfoermigengeradlinigenBewegung = Weg - Geschwindigkeit*(endZeit-startZeit);
+
+	//Ausgabe  gleichfoermigen geradlinigen Bewegung
+	printf("Der Weg betraegt %i m"), &gleichfoermigengeradlinigenBewegung; //Meter?
+}
+
+double berechnegbgBWeg(void)
+{
+	//Benutzereingabe fuer Weg s
+	printf("Bitte geben Sie den Startpunkt in Metern an: ");
+	scanf("%i", &startWeg);
+	printf("Bitte geben Sie den Endpunkt in Metern an: ");
+	scanf("%i", &endWeg);
+	
+	//Benutzereingabe fuer Geschwindigkeit v
+	printf("Bitte geben Sie die Startgeschwindigkeit in km/h an: ");
+	scanf("%i", &startGeschwindigkeit);
+	printf("Bitte geben Sie die Endgeschwindigkeit in km/h an: ");
+	scanf("%i", &endGeschwindigkeit);
+
+	//Benutzereingabe der Beschleunigung a
+	printf("Bitte geben Sie die Beschleunigungin Metern in km/h an: ");
+	scanf("%i", &Beschleunigung);
+
+	//Berechnen von delta Weg s
+	Weg = endWeg - startWeg;
+
+	//Berechnung des Weges der gleichfoermigen geradlinigen Bewegung
+	gleichmaessigbeschleunigtengeradlinigenBewegungWeg = Weg - ((endGeschwindigkeit*endGeschwindigkeit-startGeschwindigkeit*startGeschwindigkeit)/2*Beschleunigung);
+
+	//Ausgabe  gleichfoermigen geradlinigen Bewegung
+	printf("Die Geschwindigkeit betraegt %i km/h"), &gleichmaessigbeschleunigtengeradlinigenBewegungWeg;
+}
+
+double berechnegbgBGeschwindigkeit(void)
+{
+	//Benutzereingabe fuer Geschwindigkeit v
+	printf("Bitte geben Sie die Startgeschwindigkeit in km/h an: ");
+	scanf("%i", &startGeschwindigkeit);
+	printf("Bitte geben Sie die Endgeschwindigkeit in km/h an: ");
+	scanf("%i", &endGeschwindigkeit);
+
+	//Benutzereingabe der Beschleunigung a
+	printf("Bitte geben Sie die Beschleunigungin Metern in km/h an: ");
+	scanf("%i", &Beschleunigung);
+
+	//Benutzereingabe fuer Zeit t
+	printf("Bitte geben Sie den Startzeitpunkt in Sekunden an: ");
+	scanf("%i", &startZeit);
+	printf("Bitte geben Sie den Endzeitpunkt in Sekunden an: ");
+	scanf("%i", &endZeit);
+
+    //Berechnung der Geschwindigkeit der gleichfoermigen geradlinigen Bewegung
+	gleichmaessigbeschleunigtengeradlinigenBewegungGeschwindigkeit = endGeschwindigkeit - Beschleunigung * (endZeit - startZeit) + startGeschwindigkeit;
+
+	//Ausgabe  gleichfoermigen geradlinigen Bewegung
+	printf("Die Geschwindigkeit betraegt %i km/h"), &gleichmaessigbeschleunigtengeradlinigenBewegungGeschwindigkeit;
 }
